@@ -17,6 +17,13 @@ type SandboxReconciler struct {
 	Scheme *runtime.Scheme
 }
 
+// Environment spec
+const (
+	gpuResource = corev1.ResourceName("nvidia.com/gpu")
+	gpuRamResource = corev1.ResourceName("nvidia.com/gpumem")
+	gpuCoresResource = corev1.ResourceName("nvidia.com/gpucores")
+)
+
 // +kubebuilder:rbac:groups=ephemeral.sandbox.gpu-playground.io,resources=sandboxes,verbs=get;list;watch;create;update;patch;delete
 // +kubebuilder:rbac:groups=ephemeral.sandbox.gpu-playground.io,resources=sandboxes/status,verbs=get;update;patch
 // +kubebuilder:rbac:groups=ephemeral.sandbox.gpu-playground.io,resources=sandboxes/finalizers,verbs=update
